@@ -3,6 +3,16 @@ import "./ReservationsPage.css";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+function formatPhoneNumber(value) {
+  const digits = value.replace(/\D/g, "").slice(0, 10);
+  if (digits.length === 0) return "";
+  if (digits.length <= 3) return `(${digits}`;
+  if (digits.length <= 6) {
+    return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+  }
+  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+}
+
 function buildTimeOptions() {
   const options = [];
   const now = new Date();
@@ -86,6 +96,14 @@ export default function ReservationsPage() {
     }
     if (!EMAIL_RE.test(form.email_address.trim())) {
       setStatus({ type: "error", message: "Please enter a valid email." });
+      return;
+    }
+    const phoneDigits = form.phone_number.replace(/\D/g, "");
+    if (phoneDigits.length > 0 && phoneDigits.length !== 10) {
+      setStatus({
+        type: "error",
+        message: "Please enter a complete 10-digit phone number.",
+      });
       return;
     }
 
@@ -177,6 +195,7 @@ export default function ReservationsPage() {
             type="text"
             value={form.customer_name}
             onChange={(e) => updateField("customer_name", e.target.value)}
+            placeholder="John Doe"
             required
             autoComplete="name"
           />
@@ -189,6 +208,7 @@ export default function ReservationsPage() {
             type="email"
             value={form.email_address}
             onChange={(e) => updateField("email_address", e.target.value)}
+            placeholder="name@example.com"
             required
             autoComplete="email"
           />
@@ -200,8 +220,13 @@ export default function ReservationsPage() {
             id="phone_number"
             type="tel"
             value={form.phone_number}
-            onChange={(e) => updateField("phone_number", e.target.value)}
+            onChange={(e) =>
+              updateField("phone_number", formatPhoneNumber(e.target.value))
+            }
+            placeholder="(202) 555-4567"
+            inputMode="tel"
             autoComplete="tel"
+            maxLength={14}
           />
         </div>
 
