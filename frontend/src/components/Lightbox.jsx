@@ -7,7 +7,7 @@ export default function Lightbox({ image, onClose }) {
       if (e.key === "Escape") onClose();
     }
     document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = "unset";
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
