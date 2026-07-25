@@ -2,8 +2,7 @@
   min-height: min(70vh, 520px);
   background:
     linear-gradient(rgba(15, 14, 12, 0.55), rgba(15, 14, 12, 0.85)),
-    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80")
-      center / cover no-repeat;
+    url("../assets/images/home-cafe-fausse.webp") center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
