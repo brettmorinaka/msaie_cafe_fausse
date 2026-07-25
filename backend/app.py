@@ -119,6 +119,7 @@ def create_app():
             customer_id=customer.customer_id,
             time_slot=slot,
             table_number=table_number,
+            num_guests=num_guests,
         )
         db.session.add(reservation)
 

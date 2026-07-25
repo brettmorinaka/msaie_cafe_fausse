@@ -35,6 +35,7 @@ class Reservation(db.Model):
     )
     time_slot = db.Column(db.DateTime, nullable=False, index=True)
     table_number = db.Column(db.Integer, nullable=False)
+    num_guests = db.Column(db.Integer, nullable=False)
 
     customer = db.relationship("Customer", back_populates="reservations")
 
@@ -48,5 +49,6 @@ class Reservation(db.Model):
             "customer_id": self.customer_id,
             "time_slot": self.time_slot.isoformat(),
             "table_number": self.table_number,
+            "num_guests": self.num_guests,
             "customer_name": self.customer.customer_name if self.customer else None,
         }
