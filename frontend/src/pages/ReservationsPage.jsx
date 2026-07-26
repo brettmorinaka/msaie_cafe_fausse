@@ -36,8 +36,16 @@ function buildTimeOptions() {
           hour: "numeric",
           minute: "2-digit",
         });
+        // FIX: Build a local ISO string (YYYY-MM-DDTHH:mm) instead of using UTC .toISOString()
+        const year = slot.getFullYear();
+        const month = String(slot.getMonth() + 1).padStart(2, '0');
+        const dateStr = String(slot.getDate()).padStart(2, '0');
+        const hourStr = String(slot.getHours()).padStart(2, '0');
+        const minStr = String(slot.getMinutes()).padStart(2, '0');
+        const localIsoValue = `${year}-${month}-${dateStr}T${hourStr}:${minStr}`;
+
         options.push({
-          value: slot.toISOString().slice(0, 16),
+          value: localIsoValue,
           label,
         });
       }
@@ -114,7 +122,7 @@ export default function ReservationsPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...form,
-          time_slot: new Date(form.time_slot).toISOString(),
+          time_slot: form.time_slot,
           num_guests: Number(form.num_guests),
         }),
       });
