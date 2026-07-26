@@ -1,33 +1,33 @@
 export const galleryImages = [
   {
-    src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80",
-    alt: "Warm interior dining room with candlelit tables",
-    caption: "Interior ambiance",
+    src: new URL("../assets/images/gallery-cafe-interior.webp", import.meta.url).href,
+    alt: "Café Fausse",
+    caption: "Café Fausse",
   },
   {
-    src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80",
-    alt: "Elegant plated fine dining dish",
-    caption: "Signature plating",
+    src: new URL("../assets/images/gallery-ribeye-steak.webp", import.meta.url).href,
+    alt: "Ribeye Steak",
+    caption: "Ribeye Steak",
   },
   {
-    src: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=80",
-    alt: "Chef preparing food in the kitchen",
-    caption: "Behind the scenes",
+    src: new URL("../assets/images/gallery-special-event.webp", import.meta.url).href,
+    alt: "Special Event",
+    caption: "Special Event",
   },
   {
-    src: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1200&q=80",
-    alt: "Grilled salmon with vegetables",
+    src: new URL("../assets/images/gallery-grilled-salmon.jpg", import.meta.url).href,
+    alt: "Grilled Salmon",
     caption: "Grilled Salmon",
   },
   {
-    src: "https://images.unsplash.com/photo-1510812431400-5740653585a0?w=1200&q=80",
-    alt: "Wine glasses at a special event",
-    caption: "Special events",
+    src: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1200&q=80",
+    alt: "Bar Seating Area",
+    caption: "Bar Seating Area",
   },
   {
-    src: "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=1200&q=80",
-    alt: "Artisan dessert presentation",
-    caption: "Dessert course",
+    src: new URL("../assets/images/gallery-vegetable-risotto.jpg", import.meta.url).href,
+    alt: "Vegetable Risotto",
+    caption: "Vegetable Risotto",
   },
 ];
 
