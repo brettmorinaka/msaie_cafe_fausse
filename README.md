@@ -51,7 +51,7 @@ Tables (`customers`, `reservations`) are created automatically when the Flask ap
 ### Schema (reference)
 
 - **customers** — `customer_id`, `customer_name`, `email_address`, `phone_number`, `newsletter_signup`
-- **reservations** — `reservation_id`, `customer_id`, `time_slot`, `table_number` (unique per time slot + table)
+- **reservations** — `reservation_id`, `customer_id`, `time_slot`, `table_number`, `num_guests` (unique per time slot + table)
 
 ## Back-end setup
 
